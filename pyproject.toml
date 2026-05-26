@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bfmix"
+version = "0.1.0"
+description = "Ultracold Bose-Fermi mixture simulator: Thomas-Fermi / pseudo-GPE ground states"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Henry Ando", email = "" }]
+requires-python = ">=3.11"
+keywords = ["ultracold", "BEC", "Fermi gas", "Thomas-Fermi", "quantum simulation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+webapp = ["streamlit>=1.32"]
+dev    = ["pytest>=7", "pytest-cov", "ruff", "mypy"]
+
+[project.urls]
+Homepage   = "https://github.com/henryando/bfmix"
+Repository = "https://github.com/henryando/bfmix"
+Issues     = "https://github.com/henryando/bfmix/issues"
+
+[tool.setuptools.packages.find]
+include = ["bfmix*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
